@@ -1,0 +1,15 @@
+{
+    "name": "haddad/php-traning",
+    "authors": [
+        {
+            "name": "haddadzineddine",
+            "email": "hz_haddad@esi.dz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\" : "./"
+        }
+    },
+    "require": {}
+}
