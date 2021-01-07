@@ -20,14 +20,8 @@ class Application
 
     public function run()
     {
-        $this->router->get('/',function(){
-            echo "home";
-        });
+        $this->router->get('/','home');
 
-        $this->router->get('/zino',function(){
-            echo "hello zineddine";
-        });
-
-        $this->router->resolve();
+         echo $this->router->resolve();
     }
 }
