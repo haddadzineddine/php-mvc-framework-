@@ -53,9 +53,25 @@ class Router
         
     }
 
-    public function renderView($view)
+    public function renderView($view,$params =[])
     {
+
+        foreach ($params as $key => $value)
+        {
+            $$key = $value;
+        }
+        
         include_once Application::$ROOT_DIR."/views/$view.php";
+
+        /* 
+            example :
+            $foo = 'zineddine';
+            $zineddine ='haddad';
+
+            $$foo = 'haddad'; this is the result !
+        
+        */
+       
         // $layoutContent = $this->layoutContent();
         // $viewContent = $this->renderView($view);
         // return str_replace('{{content}}',$viewContent,$layoutContent);    
