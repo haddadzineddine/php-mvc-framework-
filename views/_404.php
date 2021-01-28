@@ -32,22 +32,7 @@
         </div>
     </nav>
 
-    <h1>Hello, From Contact !</h1>
-    <div class="container">
-        <form action="" method="post">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">body</label>
-                <textarea id="exampleInputPassword" class="form-control"></textarea>
-            </div>
-
-            <button type="submit" class="btn mt-4 btn-primary">Send</button>
-        </form>
-    </div>
-
+    <h1>Not Found !</h1>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
