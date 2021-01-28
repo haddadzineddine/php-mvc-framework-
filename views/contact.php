@@ -34,14 +34,14 @@
 
     <h1>Hello, From Contact !</h1>
     <div class="container">
-        <form action="" method="post">
+        <form action="" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">body</label>
-                <textarea id="exampleInputPassword" class="form-control"></textarea>
+                <label for="exampleInputPassword1">message</label>
+                <textarea id="exampleInputPassword" name="message" class="form-control"></textarea>
             </div>
 
             <button type="submit" class="btn mt-4 btn-primary">Send</button>

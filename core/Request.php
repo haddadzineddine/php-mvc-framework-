@@ -24,4 +24,26 @@ class Request
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
+    public function getBody()
+    {
+        $body = [];
+       
+        if ($this->getMethod() === 'get')
+        {
+            foreach ($_GET as $key => $value)
+            {
+                $body[$key] = htmlspecialchars($value);
+            }
+        }
+
+        if ($this->getMethod() === 'post')
+        {
+            foreach ($_POST as $key => $value)
+            {
+                $body[$key] = htmlspecialchars($value);
+            }
+        }
+        var_dump($body);
+        return $body;
+    }
 }

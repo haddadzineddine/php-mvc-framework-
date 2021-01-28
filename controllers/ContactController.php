@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\core\Request;
 
 class ContactController extends Controller {
     public  function index()
@@ -8,9 +9,9 @@ class ContactController extends Controller {
         $this->render('contact');
     }
 
-    public  function post()
+    public  function post(Request $request)
     {
-        $this->render('contact');
-        // var_dump($_SERVER);
+        // $this->render('contact');
+        $request->getBody();
     }
 }
