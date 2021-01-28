@@ -1,11 +1,16 @@
 <?php
 namespace app\controllers;
 
-use app\core\Application;
 
-class ContactController {
+class ContactController extends Controller {
     public  function index()
     {
-        Application::$app->router->renderView('contact');
+        $this->render('contact');
+    }
+
+    public  function post()
+    {
+        $this->render('contact');
+        // var_dump($_SERVER);
     }
 }

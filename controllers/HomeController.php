@@ -1,17 +1,15 @@
 <?php
 namespace app\controllers;
 
-use app\core\Application;
 
 
-class HomeController {
+class HomeController extends Controller {
 
     public function index() {
         $params = [
             'name' => 'zineddine',
-            'family_name' => 'haddad'
         ];
 
-        Application::$app->router->renderView('home',$params);
+        $this->render('home',$params);
     }
 }
