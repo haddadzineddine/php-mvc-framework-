@@ -13,5 +13,6 @@ class ContactController extends Controller {
     {
         // $this->render('contact');
         $request->getBody();
+        $this->render('contact');
     }
 }
