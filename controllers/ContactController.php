@@ -12,7 +12,7 @@ class ContactController extends Controller {
     public  function post(Request $request)
     {
         // $this->render('contact');
-        $request->getBody();
+        $request->all();
         $this->render('contact');
     }
 }

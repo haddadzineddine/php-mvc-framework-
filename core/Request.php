@@ -1,49 +1,53 @@
 <?php
+
 namespace app\core;
 
 
-class Request 
+class Request
 {
     public function getPath()
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
-        $position = strpos($path,'?');
-        
+        $position = strpos($path, '?');
 
-        if ( ! $position )
-        {  
-            return $path;  
+
+        if (!$position) {
+            return $path;
         }
 
-        return substr($path,0,$position);
-         
+        return substr($path, 0, $position);
     }
 
 
-    public function getMethod()
+    public function method()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
-    public function getBody()
+
+    public function isGet()
+    {
+        return $this->method() === 'get';
+    }
+
+    public function isPost()
+    {
+        return $this->method() === 'post';
+    }
+    public function all()
     {
         $body = [];
-       
-        if ($this->getMethod() === 'get')
-        {
-            foreach ($_GET as $key => $value)
-            {
+
+        if ($this->method() === 'get') {
+            foreach ($_GET as $key => $value) {
                 $body[$key] = htmlspecialchars($value);
             }
         }
 
-        if ($this->getMethod() === 'post')
-        {
-            foreach ($_POST as $key => $value)
-            {
+        if ($this->method() === 'post') {
+            foreach ($_POST as $key => $value) {
                 $body[$key] = htmlspecialchars($value);
             }
         }
-        var_dump($body);
         return $body;
     }
 }
