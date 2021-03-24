@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">message</label>
-                <textarea id="exampleInputPassword" name="message" class="form-control"></textarea>
+                <textarea id="exampleInputPassword1" name="message" class="form-control"></textarea>
             </div>
 
             <button type="submit" class="btn mt-4 btn-primary">Send</button>
