@@ -37,13 +37,13 @@ class Request
     {
         $body = [];
 
-        if ($this->method() === 'get') {
+        if ($this->isGet()) {
             foreach ($_GET as $key => $value) {
                 $body[$key] = htmlspecialchars($value);
             }
         }
 
-        if ($this->method() === 'post') {
+        if ($this->isPost()) {
             foreach ($_POST as $key => $value) {
                 $body[$key] = htmlspecialchars($value);
             }
