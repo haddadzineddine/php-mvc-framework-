@@ -17,4 +17,4 @@ require_once Router::getRoutes();
 
 
 
-$app->run();
+$app->runWithExceptionHandling();
