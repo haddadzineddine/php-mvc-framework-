@@ -6,7 +6,7 @@ use app\controllers\HomeController;
 use app\controllers\ContactController;
 
 Router::get('/', [HomeController::class, 'index']);
-Router::get('/home', [HomeController::class, 'index']);  
+Router::get('/home', [HomeController::class, 'index']);
 Router::get('/contact', [ContactController::class, 'index']);
 Router::post('/contact', [ContactController::class, 'post']);
 

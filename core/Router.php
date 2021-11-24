@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\core\Application;
+use Exception;
 
 class Router
 {
@@ -62,7 +63,6 @@ class Router
         $callback = self::$routes[$method][$path] ?? false;
 
         if ($callback == false) {
-            $this->response->setStatusCode(404);
             $this->renderView('_404');
             return;
         }
