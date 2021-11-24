@@ -9,19 +9,6 @@ class Router
     protected Request $request;
     protected Response $response;
     static protected array $routes = [];
-    /*
-        in this variable will save all route in this format 
-        [
-            'get':[
-                'path': callback function,
-            ],
-        ]
-    */
-
-    static public function getRoutes()
-    {
-        return Application::$ROOT_DIR . '/routes/web.php';
-    }
 
     public function __construct(Request $request, Response $response)
     {
@@ -29,18 +16,46 @@ class Router
         $this->response = $response;
     }
 
-    static public function get($path, $callback)
+    /**
+     * get routes file path
+     *
+     * @return string
+     */
+    static public function getRoutes(): string
+    {
+        return Application::$ROOT_DIR . '/routes/web.php';
+    }
+
+    /**
+     * add get route
+     *
+     * @param string $path
+     * @param array|string|null $callback
+     * @return void
+     */
+    static public function get(string $path, array|string|null $callback): void
     {
         self::$routes['get'][$path] = $callback;
     }
 
-    static public function post($path, $callback)
+    /**
+     * add post route
+     *
+     * @param string $path
+     * @param array|string|null $callback
+     * @return void
+     */
+    static public function post(string $path, array|string|null $callback)
     {
         self::$routes['post'][$path] = $callback;
     }
 
-
-    public function resolve()
+    /**
+     * resolve url
+     *
+     * @return void
+     */
+    public function resolve(): void
     {
         $path = $this->request->getPath();
         $method = $this->request->method();
@@ -48,26 +63,31 @@ class Router
 
         if ($callback == false) {
             $this->response->setStatusCode(404);
-            return $this->renderView('_404');;
+            $this->renderView('_404');
+            return;
         }
 
         if (is_string($callback)) {
-            return $this->renderView($callback);
+            $this->renderView($callback);
+            return;
         }
 
         if (is_array($callback)) {
             $callback[0] = new $callback[0]();
         }
 
-
-
-        return call_user_func($callback, $this->request);
+        call_user_func($callback, $this->request);
     }
 
-    public function renderView($view, $params = [])
+    /**
+     * render view
+     *
+     * @param string $view
+     * @param array $params
+     * @return void
+     */
+    public function renderView(string $view, array $params = []): void
     {
-
-
         foreach ($params as $key => $value) {
             $$key = $value;
         }

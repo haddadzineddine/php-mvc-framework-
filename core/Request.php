@@ -5,11 +5,15 @@ namespace app\core;
 
 class Request
 {
-    public function getPath()
+    /**
+     * get url
+     *
+     * @return string
+     */
+    public function getPath(): string
     {
         $path = $_SERVER['REQUEST_URI'] ?? '/';
         $position = strpos($path, '?');
-
 
         if (!$position) {
             return $path;
@@ -18,22 +22,42 @@ class Request
         return substr($path, 0, $position);
     }
 
-
-    public function method()
+    /**
+     * get request methode
+     *
+     * @return string
+     */
+    public function method(): string
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    public function isGet()
+    /**
+     * check if the request is get methode 
+     *
+     * @return boolean
+     */
+    public function isGet(): bool
     {
         return $this->method() === 'get';
     }
 
-    public function isPost()
+    /**
+     * check if the request is post methode
+     *
+     * @return boolean
+     */
+    public function isPost(): bool
     {
         return $this->method() === 'post';
     }
-    public function all()
+
+    /**
+     * get request body data
+     *
+     * @return array
+     */
+    public function all() : array
     {
         $body = [];
 
@@ -48,6 +72,7 @@ class Request
                 $body[$key] = htmlspecialchars($value);
             }
         }
+
         return $body;
     }
 }
