@@ -2,7 +2,7 @@
 
 namespace app\core;
 
-use app\Handle;
+use app\exceptions\Handle;
 
 class Application
 {
