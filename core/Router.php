@@ -9,6 +9,7 @@ class Router
 {
     protected Request $request;
     protected Response $response;
+    
     static protected array $routes = [];
 
     public function __construct(Request $request, Response $response)
