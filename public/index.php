@@ -13,7 +13,6 @@ $config = require_once $ROOT_DIR . '/config/database.php';
 $app = new Application($config);
 $app->setRouteDirectory($ROOT_DIR);
 
-
 // define Routes
 require_once Router::getRoutes();
 

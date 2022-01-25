@@ -4,8 +4,9 @@ namespace app\controllers;
 use app\core\Request;
 
 class ContactController extends Controller {
-    public  function index()
+    public  function index(Request $request)
     {
+        var_dump($request->all());
         $this->render('contact');
     }
 
@@ -13,6 +14,7 @@ class ContactController extends Controller {
     {
         // $this->render('contact');
         $request->all();
+        var_dump($request->all());
         $this->render('contact');
     }
 }

@@ -2,9 +2,18 @@
 
 namespace app\core;
 
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
-class Request
+class Request extends SymfonyRequest
 {
+    protected $symfonyRequest;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->symfonyRequest = SymfonyRequest::createFromGlobals();
+    }
+
     /**
      * get url
      *
@@ -22,15 +31,6 @@ class Request
         return substr($path, 0, $position);
     }
 
-    /**
-     * get request methode
-     *
-     * @return string
-     */
-    public function method(): string
-    {
-        return strtolower($_SERVER['REQUEST_METHOD']);
-    }
 
     /**
      * check if the request is get methode 
@@ -39,7 +39,7 @@ class Request
      */
     public function isGet(): bool
     {
-        return $this->method() === 'get';
+        return $this->symfonyRequest->getMethod() === 'GET';
     }
 
     /**
@@ -49,7 +49,7 @@ class Request
      */
     public function isPost(): bool
     {
-        return $this->method() === 'post';
+        return $this->symfonyRequest->getMethod() === 'POST';
     }
 
     /**
@@ -57,22 +57,13 @@ class Request
      *
      * @return array
      */
-    public function all() : array
+    public function all()
     {
-        $body = [];
-
         if ($this->isGet()) {
-            foreach ($_GET as $key => $value) {
-                $body[$key] = htmlspecialchars($value);
-            }
+
+            return $this->symfonyRequest->query->all();
         }
 
-        if ($this->isPost()) {
-            foreach ($_POST as $key => $value) {
-                $body[$key] = htmlspecialchars($value);
-            }
-        }
-
-        return $body;
+        return $this->symfonyRequest->request->all();
     }
 }
