@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\exceptions\Handle;
+use app\core\database\Database;
 
 class Application
 {
