@@ -31,6 +31,15 @@ class Request extends SymfonyRequest
         return substr($path, 0, $position);
     }
 
+    /**
+     * get request methode
+     * @return string
+     */
+    public function getMethode(): string
+    {
+        return $this->symfonyRequest->getMethod();
+    }
+
 
     /**
      * check if the request is get methode 

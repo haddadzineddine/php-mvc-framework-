@@ -9,7 +9,7 @@ class Router
 {
     protected Request $request;
     protected Response $response;
-    
+
     static protected array $routes = [];
 
     public function __construct(Request $request, Response $response)
@@ -60,7 +60,7 @@ class Router
     public function resolve(): void
     {
         $path = $this->request->getPath();
-        $method = $this->request->method();
+        $method = $this->request->getMethod();
         $callback = self::$routes[$method][$path] ?? false;
 
         if ($callback == false) {
