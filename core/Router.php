@@ -93,6 +93,6 @@ class Router
             $$key = $value;
         }
 
-        include_once Application::$ROOT_DIR . "/views/$view.php";
+        include_once Application::$ROOT_DIR . "/ressources/views/$view.php";
     }
 }
