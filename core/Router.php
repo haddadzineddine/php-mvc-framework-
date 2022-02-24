@@ -37,7 +37,7 @@ class Router
      */
     static public function get(string $path, array|string|null $callback): void
     {
-        self::$routes['get'][$path] = $callback;
+        self::$routes['GET'][$path] = $callback;
     }
 
     /**
@@ -49,7 +49,7 @@ class Router
      */
     static public function post(string $path, array|string|null $callback)
     {
-        self::$routes['post'][$path] = $callback;
+        self::$routes['POST'][$path] = $callback;
     }
 
     /**
@@ -62,7 +62,7 @@ class Router
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
         $callback = self::$routes[$method][$path] ?? false;
-
+        
         if ($callback == false) {
             $this->renderView('_404');
             return;
